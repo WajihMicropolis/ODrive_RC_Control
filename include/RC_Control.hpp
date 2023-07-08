@@ -1,6 +1,6 @@
 #ifndef _RC_CONTROL_HPP
 #define _RC_CONTROL_HPP
-
+#include <Arduino.h>
 #include <ServoInput.h>
 
 const int PulseMin = 1000,
@@ -12,11 +12,6 @@ const int SteeringSignalPin = 5,
           Chan3SignalPin = 17, // chan3 Setup
           Chan4SignalPin = 18;       // chan4 Setup
 
-// ServoInputPin<ThrottleSignalPin> throttle(PulseMin, PulseMax);
-// ServoInputPin<SteeringSignalPin> steering(PulseMin, PulseMax);
-// ServoInputPin<Chan3SignalPin> Chan3(PulseMin, PulseMax);
-// ServoInputPin<Chan4SignalPin> Chan4(PulseMin, PulseMax);
-
 struct RCRX
 {
   int Steering;
@@ -24,5 +19,7 @@ struct RCRX
   bool Chan3;
   bool Chan4;
 };
+void RC_Init();
+RCRX getRC(bool debug = false);
 
 #endif //_RC_CONTROL_HPP
